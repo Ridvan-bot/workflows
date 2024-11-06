@@ -8,6 +8,7 @@ on:
                 type: string
 jobs:
   echo_message:
+    if: ${{ inputs.branches == 'main' }}
     runs-on: ubuntu-22.04
 
     steps:
