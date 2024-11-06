@@ -1,0 +1,15 @@
+name: Semantic Release
+
+on:
+    workflow_dispatch:
+
+jobs:
+  echo_message:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Echo "I'm working"
+        run: echo "I'm working"
