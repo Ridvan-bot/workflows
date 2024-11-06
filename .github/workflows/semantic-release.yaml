@@ -7,7 +7,7 @@ on:
                 required: true
                 type: string
 jobs:
-  echo_message:
+  Execute-Semantic-release:
     if: ${{ inputs.branches == 'main' }}
     runs-on: ubuntu-22.04
 
@@ -15,5 +15,5 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Echo "I'm working"
-        run: echo "I'm working"
+      - name: Release
+        run: echo "I'm Releasing"
