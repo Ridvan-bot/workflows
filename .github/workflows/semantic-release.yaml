@@ -2,7 +2,10 @@ name: Semantic Release
 
 on:
     workflow_call:
-
+        inputs:
+            branches:
+                required: true
+                type: string
 jobs:
   echo_message:
     runs-on: ubuntu-22.04
