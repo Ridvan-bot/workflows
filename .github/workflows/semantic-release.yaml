@@ -53,7 +53,7 @@ jobs:
       - name: Copy .releaserc.json
         run: |
           # Go back to the root directory
-          cd ${{ github.workspace }}
+          cd ./workflow/.releaserc.json
           ls -l
           if [ -f "${{ inputs.releaserc_path }}" ]; then
             cp "${{ inputs.releaserc_path }}" ./.releaserc.json
