@@ -1,19 +1,55 @@
 name: Semantic Release
 
 on:
-    workflow_call:
-        inputs:
-            branches:
-                required: true
-                type: string
+  workflow_call:
+    inputs:
+      branches:
+        required: true
+        type: string
+      releaserc_path:
+        required: false
+        type: string
+        default: './workflow/.releaserc.json'
+
 jobs:
   Execute-Semantic-release:
     if: ${{ inputs.branches == 'main' }}
     runs-on: ubuntu-22.04
 
     steps:
-      - name: Checkout code
+      # Check out the calling repository
+      - name: Checkout calling repository
         uses: actions/checkout@v4
 
-      - name: Release
-        run: echo "I'm Releasing"
+      # Check out the `workflow` repo where the default .releaserc.json is stored (if needed)
+      - name: Checkout workflow repo for default config
+        if: ${{ !inputs.releaserc_path }}
+        uses: actions/checkout@v4
+        with:
+          repository: Ridvan-bot/workflows
+          path: workflow
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Use the input .releaserc.json if provided, otherwise use the default one from `workflow` repo
+      - name: Copy .releaserc.json
+        run: |
+          if [ -f "${{ inputs.releaserc_path }}" ]; then
+            cp "${{ inputs.releaserc_path }}" ./.releaserc.json
+          else
+            cp ./workflow/.releaserc.json ./.releaserc.json
+          fi
+
+      # Run Semantic Release
+      - name: Run Semantic Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
