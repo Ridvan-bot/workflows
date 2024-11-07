@@ -54,12 +54,13 @@ jobs:
         run: |
           # Go back to the root directory
           cd ${{ github.workspace }}
-          ls -l
+    
           if [ -f "${{ inputs.releaserc_path }}" ]; then
             cp "${{ inputs.releaserc_path }}" ./.releaserc.json
           else
-            cp ./workflow/.releaserc.json ./.releaserc.json
+            cp "${{ github.workspace }}/workflow/.releaserc.json" ./.releaserc.json
           fi
+
 
       # Run Semantic Release
       - name: Run Semantic Release
