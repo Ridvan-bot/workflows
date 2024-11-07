@@ -17,7 +17,7 @@ on:
 
 jobs:
   Execute-Semantic-release:
-    if: ${{ inputs.branches == 'dev' }}
+    if: ${{ inputs.branches == 'main' }}
     runs-on: ubuntu-22.04
 
     steps:
@@ -47,8 +47,8 @@ jobs:
           # Show the current working directory before changing
           echo "Current working directory before navigation:"
           pwd
-          # Navigate up one level to `/home/runner/work/website/` and then to `repo_path`
-          echo "Changing directory to: ${{ inputs.repo_path }}"
+          # Navigate up one level to `/home/runner/work/website/` and then into `repo_path`
+          echo "Changing directory to: ${inputs.repo_path}"
           cd ${{ github.workspace }}/..${{ inputs.repo_path }}  # Navigate to the correct repo path
           # Show the new working directory after changing
           echo "New working directory after navigation:"
