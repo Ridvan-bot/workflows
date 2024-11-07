@@ -10,6 +10,10 @@ on:
         required: false
         type: string
         default: './workflow/.releaserc.json'
+      repo_path:
+        required: false
+        type: string
+        default: './pohlmanprotean.se/'
 
 jobs:
   Execute-Semantic-release:
@@ -17,9 +21,11 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      # Check out the calling repository (website repo)
+      # Check out the calling repository 
       - name: Checkout calling repository
         uses: actions/checkout@v4
+        with:
+          path: ${{ inputs.repo_path }}  # Use the provided repo path input
 
       # Check out the `workflow` repo for the default config if needed
       - name: Checkout workflow repo for default config
@@ -35,9 +41,11 @@ jobs:
         with:
           node-version: '20'
 
-      # Install dependencies in the root directory of the website repo
+      # Install dependencies in the correct directory
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd ${{ inputs.repo_path }}  # Navigate to the provided repo path
+          npm install
 
       # Use the input .releaserc.json if provided, otherwise use the default one from the `workflow` repo
       - name: Copy .releaserc.json
@@ -52,4 +60,6 @@ jobs:
       - name: Run Semantic Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
+        run: |
+          cd ${{ inputs.repo_path }}  # Navigate to the provided repo path
+          npx semantic-release
