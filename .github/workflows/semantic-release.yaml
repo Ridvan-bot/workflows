@@ -54,18 +54,18 @@ jobs:
         run: |
           # Go back to the root directory
           cd ${{ github.workspace }}
-    
+          ls-l
           if [ -f "${{ inputs.releaserc_path }}" ]; then
             cp "${{ inputs.releaserc_path }}" ./.releaserc.json
           else
             cp "${{ github.workspace }}/workflow/.releaserc.json" ./.releaserc.json
           fi
 
-
       # Run Semantic Release
       - name: Run Semantic Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cd ${{ github.workspace }}/..${{ inputs.repo_path }}  # Navigate to the correct repo path
+          cd ${{ github.workspace }}
+          cd ${{ inputs.repo_path }}
           npx semantic-release
