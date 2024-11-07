@@ -13,10 +13,9 @@ on:
         required: false
         type: string
         default: '/pohlmanprotean.se/'
+    secrets:
       token:
         required: true
-        type: string
-        description: 'GitHub token for authentication'
 
 jobs:
   Execute-Semantic-release:
