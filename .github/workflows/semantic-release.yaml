@@ -44,7 +44,7 @@ jobs:
       # Install dependencies in the correct directory
       - name: Install dependencies
         run: |
-          cd ${{ github.workspace }}
+          cd ${{ github.workspace }}/pohlmanprotean.se/
           # Install dependencies
           npm install
 
