@@ -44,15 +44,7 @@ jobs:
       # Install dependencies in the correct directory
       - name: Install dependencies
         run: |
-          # Show the current working directory before changing
-          echo "Current working directory before navigation:"
-          pwd
-          # Navigate up one level to `/home/runner/work/website/` and then into `repo_path`
-          echo "Changing directory to: ${inputs.repo_path}"
-          cd ${{ github.workspace }}/..${{ inputs.repo_path }}  # Navigate to the correct repo path
-          # Show the new working directory after changing
-          echo "New working directory after navigation:"
-          pwd
+          cd ${{ github.workspace }}
           # Install dependencies
           npm install
 
