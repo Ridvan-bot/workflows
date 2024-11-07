@@ -55,6 +55,7 @@ jobs:
           # Go back to the root directory
           cd ${{ github.workspace }}
           cd ..
+          cd ..
           ls -l
           if [ -f "${{ inputs.releaserc_path }}" ]; then
             cp "${{ inputs.releaserc_path }}" ./.releaserc.json
