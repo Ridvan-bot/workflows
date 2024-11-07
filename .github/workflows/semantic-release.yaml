@@ -16,7 +16,6 @@ on:
     secrets:
       token:
         required: true
-
 jobs:
   Execute-Semantic-release:
     if: ${{ inputs.branches == 'dev' }}
@@ -47,7 +46,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd ${{ github.workspace }}
-          cd ${{ inputs.repo_path }}
+          cd .${{ inputs.repo_path }}
           # Install dependencies
           npm install
 
