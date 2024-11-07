@@ -42,18 +42,11 @@ jobs:
         with:
           node-version: '20'
 
-
-      - name: Set relative path variable
-        id: set_repo_path
-        run: |
-            # Combine the dot and repo path into one variable
-            RELATIVE_PATH=".${{ inputs.repo_path }}"
-            echo "REPO_PATH=$RELATIVE_PATH" >> $GITHUB_ENV
       # Install dependencies in the correct directory
       - name: Install dependencies
         run: |
           cd ${{ github.workspace }}
-          cd ${{ env.REPO_PATH }}
+          cd .${{ inputs.repo_path }}
           # Install dependencies
           npm install
 
