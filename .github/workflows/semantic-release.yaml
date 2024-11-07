@@ -17,11 +17,11 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      # Check out the calling repository
+      # Check out the calling repository (website repo)
       - name: Checkout calling repository
         uses: actions/checkout@v4
 
-      # Check out the `workflow` repo where the default .releaserc.json is stored (if needed)
+      # Check out the `workflow` repo for the default config if needed
       - name: Checkout workflow repo for default config
         if: ${{ !inputs.releaserc_path }}
         uses: actions/checkout@v4
@@ -29,17 +29,17 @@ jobs:
           repository: Ridvan-bot/workflows
           path: workflow
 
-      # Set up Node.js
+      # Set up Node.js environment
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
-      # Install dependencies
+      # Install dependencies in the root directory of the website repo
       - name: Install dependencies
         run: npm install
 
-      # Use the input .releaserc.json if provided, otherwise use the default one from `workflow` repo
+      # Use the input .releaserc.json if provided, otherwise use the default one from the `workflow` repo
       - name: Copy .releaserc.json
         run: |
           if [ -f "${{ inputs.releaserc_path }}" ]; then
