@@ -13,7 +13,7 @@ on:
       repo_path:
         required: false
         type: string
-        default: './pohlmanprotean.se/'
+        default: '/pohlmanprotean.se/'
 
 jobs:
   Execute-Semantic-release:
@@ -44,7 +44,7 @@ jobs:
       # Install dependencies in the correct directory
       - name: Install dependencies
         run: |
-          cd ${{ github.workspace }}/pohlmanprotean.se/
+          cd ${{ github.workspace }}${{ inputs.repo_path }}
           # Install dependencies
           npm install
 
