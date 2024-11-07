@@ -9,7 +9,6 @@ on:
       releaserc_path:
         required: false
         type: string
-        default: './workflow/.releaserc.json'
       repo_path:
         required: false
         type: string
@@ -52,9 +51,6 @@ jobs:
       # Use the input .releaserc.json if provided, otherwise use the default one from the `workflow` repo
       - name: Copy .releaserc.json
         run: |
-          # Go back to the root directory
-          cd ./workflow/.releaserc.json
-          ls -l
           if [ -f "${{ inputs.releaserc_path }}" ]; then
             cp "${{ inputs.releaserc_path }}" ./.releaserc.json
           else
