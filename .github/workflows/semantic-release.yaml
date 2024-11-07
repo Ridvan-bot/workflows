@@ -21,6 +21,7 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
+
       # Check out the calling repository 
       - name: Checkout calling repository
         uses: actions/checkout@v4
@@ -44,6 +45,7 @@ jobs:
       # Install dependencies in the correct directory
       - name: Install dependencies
         run: |
+          pwd
           cd ${{ inputs.repo_path }}  # Navigate to the provided repo path
           npm install
 
