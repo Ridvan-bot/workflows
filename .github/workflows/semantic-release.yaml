@@ -46,7 +46,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd ${{ github.workspace }}
-          cd .${{ inputs.repo_path }}
+          cd ${{ inputs.repo_path }}
           # Install dependencies
           npm install
 
