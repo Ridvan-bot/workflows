@@ -12,7 +12,6 @@ on:
       repo_path:
         required: false
         type: string
-        default: '/pohlmanprotean.se/'
     secrets:
       token:
         required: true
