@@ -1,0 +1,45 @@
+name: Node.js Test
+
+on:
+  workflow_call:
+    inputs:
+      # <--------------- ESLint Setting --------------->
+      eslint-enable:
+        required: false
+        type: boolean
+        description: Enable ESLint
+        default: false
+
+      eslint-command:
+        required: false
+        type: string
+        description: ESLint command
+
+      # <--------------- UNIT-TEST SETTINGS -------------->
+      unit-test-enable:
+        required: false
+        type: boolean
+        description: "To disable the unit-tests job set to false"
+        default: true
+      unit-test-command:
+        required: false
+        type: string
+        description: "Used to override the default command to run your unit tests e.g. yarn test:unit-ci"
+        default: "npm run test:unit-ci"
+
+    secrets:
+      token:
+        required: true 
+
+jobs:
+  # <---------------------- ES LINT ---------------------->
+  eslint:
+    name: ES Lint
+    runs-on: ubuntu-22.04
+    if: ${{ inputs.eslint-enable }}
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+
+      - name: Echo ESLint message
+        run: echo "ESLint running in shared workflow"
