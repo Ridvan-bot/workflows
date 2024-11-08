@@ -18,7 +18,7 @@ on:
         required: true
 jobs:
   Execute-Semantic-release:
-    if: ${{ inputs.branches == 'dev' }}
+    if: ${{ inputs.branches == 'main' }}
     runs-on: ubuntu-22.04
 
     steps:
