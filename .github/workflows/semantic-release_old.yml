@@ -12,18 +12,21 @@ on:
       repo_path:
         required: false
         type: string
+        default: '/pohlmanprotean.se/'
     secrets:
       token:
         required: true
 jobs:
   Execute-Semantic-release:
-    if: ${{ inputs.branches == 'dev' }}
+    if: ${{ inputs.branches == 'main' }}
     runs-on: ubuntu-22.04
 
     steps:
       # Check out the calling repository
       - name: Checkout calling repository
         uses: actions/checkout@v4
+        with:
+          path: ${{ github.workspace }}  # Use the default workspace path
 
       # Check out the `workflow` repo for the default config if needed
       - name: Checkout workflow repo for default config
@@ -42,6 +45,8 @@ jobs:
       # Install dependencies in the correct directory
       - name: Install dependencies
         run: |
+          cd ${{ github.workspace }}
+          cd ${{ inputs.repo_path }}
           # Install dependencies
           npm install
 
@@ -59,4 +64,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          cd ${{ github.workspace }}
+          cd ${{ inputs.repo_path }}
           npx semantic-release
