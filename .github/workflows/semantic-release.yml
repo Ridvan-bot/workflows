@@ -59,6 +59,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cd ${{ github.workspace }}
-          cd ${{ inputs.repo_path }}
           npx semantic-release
