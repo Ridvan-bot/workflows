@@ -74,12 +74,6 @@
         }
       ],
       [
-        "@semantic-release/version",  
-        {
-          "preset": "conventionalcommits"
-        }
-      ],
-      [
         "@semantic-release/git",
         {
           "assets": [
