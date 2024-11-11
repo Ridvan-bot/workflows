@@ -1,3 +1,9 @@
+## [1.1.1](https://github.com/Ridvan-bot/workflows/compare/v1.1.0...v1.1.1) (2024-11-11)
+
+### Bug Fixes
+
+* workflow name ([2162768](https://github.com/Ridvan-bot/workflows/commit/2162768afcf7c4d5a57f4badaf7121ef42114861))
+
 ## [1.1.0](https://github.com/Ridvan-bot/workflows/compare/v1.0.0...v1.1.0) (2024-11-11)
 
 ## 1.0.0 (2024-11-11)
