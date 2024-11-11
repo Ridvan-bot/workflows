@@ -1,4 +1,4 @@
-name: Setup Google Cloud Infrastructure
+name: Prep Google Cloud With Required Infrastructure
 
 # Trigger this workflow manually with inputs for branch and project name
 on:
