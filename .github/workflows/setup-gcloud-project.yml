@@ -1,0 +1,75 @@
+name: Setup Google Cloud Infrastructure
+
+# Trigger this workflow manually with inputs for branch and project name
+on:
+  workflow_dispatch:
+    inputs:
+      project_name:
+        description: 'Google Cloud Project name (e.g., dev-my-project or main-my-project)'
+        required: true
+        default: 'dev-my-project'
+      customer_name:
+        description: 'Select the customer'
+        required: true
+        type: choice
+        options:
+          - pohlmanprotean
+          - hosandrej
+      branch:
+        description: 'Select branch (e.g., dev or main)'
+        required: true
+        type: string
+
+  workflow_call:
+    inputs:
+      project_name:
+        description: 'Google Cloud Project name (e.g., dev-my-project or main-my-project)'
+        required: true
+        type: string
+      customer_name:
+        description: 'Customer name'
+        required: true
+        type: string
+      branch:
+        description: 'Select branch (e.g., dev or main)'
+        required: true
+        type: string
+    secrets:
+      token:
+        required: true
+
+jobs:
+  setup-project:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Extract Branch Name
+        id: branch_name
+        run: echo "BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
+
+      - name: Set up environment variables for dynamic secret
+        id: set-secret-name
+        run: |
+          echo "SECRET_NAME=${{ github.event.inputs.branch }}_GCP_${{ github.event.inputs.customer_name }}_SA_KEY" >> $GITHUB_ENV
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          # Dynamically fetch the secret using the constructed secret name
+          credentials_json: ${{ secrets[env.SECRET_NAME] }}
+          access_token_scopes: https://www.googleapis.com/auth/cloud-platform
+
+      - name: Configure gcloud CLI
+        run: |
+          gcloud config set project ${{ github.event.inputs.project_name }}
+          gcloud config set run/region europe-west1
+
+      - name: Enable Google APIs
+        run: |
+          gcloud services enable containerregistry.googleapis.com
+          gcloud services enable cloudbuild.googleapis.com
+          gcloud services enable artifactregistry.googleapis.com
+          gcloud services enable run.googleapis.com
