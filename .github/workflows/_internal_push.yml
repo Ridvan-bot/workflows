@@ -18,8 +18,8 @@ jobs:
         with:
             branches: "main"
         secrets:
-            token: ${{ secrets.EMPTY_TOKEN }}
-            
+            token: ${{ secrets.GH_TOKEN }}
+
 
 
 
