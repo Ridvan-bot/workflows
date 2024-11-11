@@ -18,7 +18,7 @@ jobs:
         with:
             branches: "main"
         secrets:
-            token: ${{ secrets.GH_TOKEN }}
+            token: ${{ secrets.SHARED_WORKFLOW_TOKEN }}
 
 
 
