@@ -1,3 +1,9 @@
+## [1.1.2](https://github.com/Ridvan-bot/workflows/compare/v1.1.1...v1.1.2) (2024-11-11)
+
+### Bug Fixes
+
+* Uppercase secrete name ([b72bebe](https://github.com/Ridvan-bot/workflows/commit/b72bebed141200292bdcff86671b3d9515c6704b))
+
 ## [1.1.1](https://github.com/Ridvan-bot/workflows/compare/v1.1.0...v1.1.1) (2024-11-11)
 
 ### Bug Fixes
