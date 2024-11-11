@@ -55,7 +55,10 @@ jobs:
       - name: Set up environment variables for dynamic secret
         id: set-secret-name
         run: |
-          echo "SECRET_NAME=${{ github.event.inputs.branch }}_GCP_${{ github.event.inputs.customer_name }}_SA_KEY" >> $GITHUB_ENV
+              # Convert branch and customer_name to uppercase and set the environment variable
+              UPPERCASE_BRANCH=$(echo "${{ github.event.inputs.branch }}" | tr '[:lower:]' '[:upper:]')
+              UPPERCASE_CUSTOMER=$(echo "${{ github.event.inputs.customer_name }}" | tr '[:lower:]' '[:upper:]')
+              echo "SECRET_NAME=${UPPERCASE_BRANCH}_GCP_${UPPERCASE_CUSTOMER}_SA_KEY" >> $GITHUB_ENV
 
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
