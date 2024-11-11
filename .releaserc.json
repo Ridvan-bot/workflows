@@ -1,7 +1,6 @@
 {
     "branches": ["main"],
     "plugins": [
-      "@semantic-release/npm@10.0.6",  
       [
         "@semantic-release/commit-analyzer",
         {
@@ -62,6 +61,12 @@
         "@semantic-release/changelog",
         {
           "changelogFile": "CHANGELOG.md"
+        }
+      ],
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
         }
       ],
       [
