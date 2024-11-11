@@ -43,6 +43,9 @@ jobs:
       - name: Install dependencies
         run: |
           # Install dependencies
+          if [ -n "${{ inputs.monorepo-path }}" ]; then
+            cd "${inputs.monorepo-path}"
+          fi
           npm install
 
       # Use the input .releaserc.json if provided, otherwise use the default one from the `workflow` repo
@@ -59,8 +62,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if [ -n "${{ inputs.monorepo-path }}" ]; then
-            cd "${inputs.monorepo-path}"
-          fi
           npx semantic-release
     
