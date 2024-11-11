@@ -15,8 +15,8 @@ To use any of the workflows, include the following in your repository's .github/
 To simplify the process of setting up these workflows in your own repositories, we have provided ready-to-use templates in the templet repository.
 
 How to Use the Templates:
-Go to the templet repository.
-Copy the pre-configured workflow templates from there.
+Go to the templet repository https://github.com/Ridvan-bot/templet.
+Clone the repository to your local machine.
 Paste them into your project's .github/workflows directory.
 Customize the workflow files as needed.
 
