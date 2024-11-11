@@ -25,6 +25,10 @@ Ensure you have the following setup:
 
 A GitHub Personal Access Token stored in your repository's secrets (e.g., GH_TOKEN).
 For the semantic-release.yml workflow, make sure your default branch is set to main for releases to trigger.
+Ensure that the token used by the CI has the necessary permissions by:
+Go to your GitHub repository's Settings → Actions → General → Workflow permissions.
+Make sure that the option "Read and write permissions" is enabled for the GitHub token in the CI.
+
 
 ## 📄 License
 This project is licensed under the MIT License.
