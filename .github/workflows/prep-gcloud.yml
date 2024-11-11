@@ -55,16 +55,17 @@ jobs:
       - name: Set up environment variables for dynamic secret
         id: set-secret-name
         run: |
-              # Convert branch and customer_name to uppercase and set the environment variable
-              UPPERCASE_BRANCH=$(echo "${{ github.event.inputs.branch }}" | tr '[:lower:]' '[:upper:]')
-              UPPERCASE_CUSTOMER=$(echo "${{ github.event.inputs.customer_name }}" | tr '[:lower:]' '[:upper:]')
-              echo "SECRET_NAME=${UPPERCASE_BRANCH}_GCP_${UPPERCASE_CUSTOMER}_SA_KEY" >> $GITHUB_ENV
+          # Convert branch and customer_name to uppercase
+          UPPERCASE_BRANCH=$(echo "${{ github.event.inputs.branch }}" | tr '[:lower:]' '[:upper:]')
+          UPPERCASE_CUSTOMER=$(echo "${{ github.event.inputs.customer_name }}" | tr '[:lower:]' '[:upper:]')
+          SECRET_NAME="${UPPERCASE_BRANCH}_GCP_${UPPERCASE_CUSTOMER}_SA_KEY"
+          echo "SECRET_NAME=${SECRET_NAME}" >> $GITHUB_ENV
+          echo "::set-output name=secret_name::${SECRET_NAME}"
 
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         with:
-          # Dynamically fetch the secret using the constructed secret name
-          credentials_json: ${{ secrets[env.SECRET_NAME] }}
+          credentials_json: ${{ secrets[steps.set-secret-name.outputs.secret_name] }}
           access_token_scopes: https://www.googleapis.com/auth/cloud-platform
 
       - name: Configure gcloud CLI
