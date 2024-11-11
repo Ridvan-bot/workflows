@@ -1,3 +1,9 @@
+## [1.1.3](https://github.com/Ridvan-bot/workflows/compare/v1.1.2...v1.1.3) (2024-11-11)
+
+### Bug Fixes
+
+* secrete ([e057541](https://github.com/Ridvan-bot/workflows/commit/e057541a1d0f214ea99ee8148f0d87166fc7e067))
+
 ## [1.1.2](https://github.com/Ridvan-bot/workflows/compare/v1.1.1...v1.1.2) (2024-11-11)
 
 ### Bug Fixes
