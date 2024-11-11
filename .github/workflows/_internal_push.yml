@@ -1,0 +1,25 @@
+name: Release
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    No-release:
+        if: ${{ inputs.branches != 'main' }}
+        runs-on: ubuntu-latest
+        steps:
+          - name: No release
+            run: echo "Branch is not main, no need to release."
+
+    execute-semantic-release:
+        uses: ./.github/workflows/semantic-release.yml
+        with:
+            branches: "main"
+        secrets:
+            token: ${{ secrets.EMPTY_TOKEN }}
+            
+
+
+

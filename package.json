@@ -1,0 +1,32 @@
+{
+  "name": "workflows",
+  "version": "1.0.0",
+  "description": "This repository contains shared GitHub Actions workflows that can be reused across multiple repositories. By using these shared workflows, you can streamline your CI/CD pipelines and maintain consistency across projects.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ridvan-bot/workflows.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ridvan-bot/workflows/issues"
+  },
+  "homepage": "https://github.com/Ridvan-bot/workflows#readme",
+  "dependencies": {
+    "@types/node": "^22.5.0",
+    "conventional-changelog-conventionalcommits": "^8.0.0",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.0",
+    "@semantic-release/npm": "^12.0.1",
+    "semantic-release": "^24.2.0"
+  }
+}
