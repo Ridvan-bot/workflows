@@ -9,9 +9,6 @@ on:
       releaserc_path:
         required: false
         type: string
-      monorepo-path:
-        required: false
-        type: string
     secrets:
       token:
         required: true
@@ -43,9 +40,6 @@ jobs:
       - name: Install dependencies
         run: |
           # Install dependencies
-          if [ -n "${{ inputs.monorepo-path }}" ]; then
-            cd "${inputs.monorepo-path}"
-          fi
           npm install
 
       # Use the input .releaserc.json if provided, otherwise use the default one from the `workflow` repo
