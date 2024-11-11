@@ -8,9 +8,6 @@ semantic-release.yml - A workflow for automating versioning and package releases
 ## 📋 How to Use These Workflows in Your Projects
 To utilize these shared workflows, you can reference them from your project's GitHub Actions configuration.
 
-Step 1: **Reference the Shared Workflow in Your Repository**
-To use any of the workflows, include the following in your repository's .github/workflows YAML file.
-
 ## 📁 Using Templates from the templet Repository
 To simplify the process of setting up these workflows in your own repositories, we have provided ready-to-use templates in the templet repository.
 
@@ -29,6 +26,14 @@ Ensure that the token used by the CI has the necessary permissions by:
 Go to your GitHub repository's Settings → Actions → General → Workflow permissions.
 Make sure that the option "Read and write permissions" is enabled for the GitHub token in the CI.
 
+## Prep GCloud Workflow
+The Prep Google Cloud With Required Infrastructure Worflow can be used to setup the requierd services in your Google Cloud Project. To succesfully run the workflow, by calling or manually run it, you must furst:
+1. Be a customer at Pohlman Protean
+2. Create a Project in Google Cloud, the name of the project must start with main- or dev-. Or ask Pohlman Protean to do it for you.
+3. Create a service Account in Google Cloud, or ask Pohlman Protean to do it.
+4. Create a JSON key connected to your service Account in Google cloud, or ask Pohlman Protean to do it.
+5. Add the JSON KEY as a secret in workflow repo, named <BRANCH>_GCP_<CUSTOMERNAME>_SA_KEY e.g, DEV_GCP_POHLMANPROTEAN_SA_KEY
+6. Run the workflow.
 
 ## 📄 License
 This project is licensed under the MIT License.
