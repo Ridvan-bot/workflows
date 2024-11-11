@@ -59,5 +59,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          if [ -n "${{ inputs.monorepo-path }}" ]; then
+            cd "${inputs.monorepo-path}"
+          fi
           npx semantic-release
     
