@@ -9,7 +9,7 @@ on:
       releaserc_path:
         required: false
         type: string
-      repo_path:
+      monorepo-path:
         required: false
         type: string
     secrets:
