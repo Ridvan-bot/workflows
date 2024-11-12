@@ -2,26 +2,6 @@ name: Prep Google Cloud With Required Infrastructure
 
 # Trigger this workflow manually with inputs for branch and project name
 on:
-  workflow_dispatch:
-    inputs:
-      project_name:
-        description: 'Google Cloud Project name (e.g., dev-my-project or main-my-project)'
-        required: true
-        default: 'dev-my-project'
-      customer_name:
-        description: 'Select the customer'
-        required: true
-        type: choice
-        options:
-          - pohlmanprotean
-          - hosandrej
-      branch:
-        description: 'Select branch (e.g., dev or main)'
-        required: true
-        type: choice
-        options:  
-          - dev
-          - main
   workflow_call:
     inputs:
       project_name:
@@ -39,6 +19,8 @@ on:
     secrets:
       token:
         required: true
+      credentials_json:
+        required: true
 
 jobs:
   setup-project:
@@ -52,20 +34,10 @@ jobs:
         id: branch_name
         run: echo "BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
 
-      - name: Set up environment variables for dynamic secret
-        id: set-secret-name
-        run: |
-          # Convert branch and customer_name to uppercase
-          UPPERCASE_BRANCH=$(echo "${{ github.event.inputs.branch }}" | tr '[:lower:]' '[:upper:]')
-          UPPERCASE_CUSTOMER=$(echo "${{ github.event.inputs.customer_name }}" | tr '[:lower:]' '[:upper:]')
-          SECRET_NAME="${UPPERCASE_BRANCH}_GCP_${UPPERCASE_CUSTOMER}_SA_KEY"
-          echo "SECRET_NAME=${SECRET_NAME}" >> $GITHUB_ENV
-          echo "::set-output name=secret_name::${SECRET_NAME}"
-
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         with:
-          credentials_json: ${{ secrets[steps.set-secret-name.outputs.secret_name] }}
+          credentials_json: ${{ secrets.credentials_json }}
           access_token_scopes: https://www.googleapis.com/auth/cloud-platform
 
       - name: Configure gcloud CLI
