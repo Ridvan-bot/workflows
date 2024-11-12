@@ -3,7 +3,7 @@ name: Node.js Test
 on:
   workflow_call:
     inputs:
-      # <--------------- ESLint Setting --------------->
+      # <--------------- ESLint Setting ---------------> 
       eslint-enable:
         required: false
         type: boolean
@@ -16,7 +16,7 @@ on:
         description: ESLint command
         default: npm run lint
 
-      # <--------------- UNIT-TEST SETTINGS -------------->
+      # <--------------- UNIT-TEST SETTINGS --------------> 
       unit-test-enable:
         required: false
         type: boolean
@@ -33,7 +33,7 @@ on:
         required: true 
 
 jobs:
-  # <---------------------- ESLINT ---------------------->
+  # <---------------------- ESLINT ----------------------> 
   eslint:
     name: ESLint Check
     runs-on: ubuntu-22.04
@@ -55,4 +55,6 @@ jobs:
 
       - name: Run ESLint
         run: |
-          ${{inputs.eslint-command}}
+          # Ensure CI environment is set to avoid prompts
+          export CI=true
+          ${{ inputs.eslint-command }}
