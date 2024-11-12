@@ -1,3 +1,9 @@
+## [1.1.4](https://github.com/Ridvan-bot/workflows/compare/v1.1.3...v1.1.4) (2024-11-12)
+
+### Bug Fixes
+
+* remove workflow_dispatch and change the secrets code ([eab22ac](https://github.com/Ridvan-bot/workflows/commit/eab22ac127b03a1b58a4beeb0fe1e475535aba74))
+
 ## [1.1.3](https://github.com/Ridvan-bot/workflows/compare/v1.1.2...v1.1.3) (2024-11-11)
 
 ### Bug Fixes
