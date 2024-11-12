@@ -34,7 +34,7 @@ The Prep Google Cloud With Required Services Worflow can be used to setup the re
 2. Create a Project in Google Cloud, the name of the project must start with main- or dev-. Or ask Pohlman Protean to do it for you.
 3. Create a service Account in Google Cloud, or ask Pohlman Protean to do it.
 4. Create a JSON key connected to your service Account in Google cloud, or ask Pohlman Protean to do it.
-5. Add the JSON KEY as a secret in workflow repo, named <BRANCH>_GCP_<CUSTOMERNAME>_SA_KEY e.g, DEV_GCP_POHLMANPROTEAN_SA_KEY. 
+5. Add the JSON KEY as a secret in workflow repo, named BRANCH_GCP_CUSTOMERNAME_SA_KEY e.g, DEV_GCP_POHLMANPROTEAN_SA_KEY. 
 6. Run the workflow.
 
 ## 📄 License
