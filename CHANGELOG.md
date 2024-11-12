@@ -1,3 +1,9 @@
+## [1.1.5](https://github.com/Ridvan-bot/workflows/compare/v1.1.4...v1.1.5) (2024-11-12)
+
+### Bug Fixes
+
+* add workflow_dispatch again and remove call ([119e92f](https://github.com/Ridvan-bot/workflows/commit/119e92f0c3623ba1864999dbb333d6973e10dfd7))
+
 ## [1.1.4](https://github.com/Ridvan-bot/workflows/compare/v1.1.3...v1.1.4) (2024-11-12)
 
 ### Bug Fixes
