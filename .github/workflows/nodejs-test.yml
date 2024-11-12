@@ -14,6 +14,7 @@ on:
         required: false
         type: string
         description: ESLint command
+        default: npm run lint
 
       # <--------------- UNIT-TEST SETTINGS -------------->
       unit-test-enable:
@@ -32,14 +33,26 @@ on:
         required: true 
 
 jobs:
-  # <---------------------- ES LINT ---------------------->
+  # <---------------------- ESLINT ---------------------->
   eslint:
-    name: ES Lint
+    name: ESLint Check
     runs-on: ubuntu-22.04
     if: ${{ inputs.eslint-enable }}
     steps:
       - name: Checkout Source
         uses: actions/checkout@v4
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: npm install
+
       - name: Echo ESLint message
-        run: echo "ESLint running in shared workflow"
+        run: echo "Running ESLint..."
+
+      - name: Run ESLint
+        run: |
+          ${{inputs.eslint-command}}
