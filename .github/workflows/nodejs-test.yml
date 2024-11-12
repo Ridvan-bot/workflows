@@ -57,4 +57,4 @@ jobs:
         run: |
           # Ensure CI environment is set to avoid prompts
           export CI=true
-          ${{ inputs.eslint-command }}
+          npx eslint . --ext .js,.ts
