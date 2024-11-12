@@ -14,7 +14,7 @@ on:
         required: false
         type: string
         description: ESLint command
-        default: npx eslint . --ext .js,.ts
+        default: npx eslint '**/*.{js,ts}'
 
       # <--------------- UNIT-TEST SETTINGS --------------> 
       unit-test-enable:
@@ -60,4 +60,4 @@ jobs:
         run: |
           # Ensure CI environment is set to avoid prompts
           export CI=true
-          npx eslint . --ext .js,.ts
+          ${{ inputs.eslint-command }}
