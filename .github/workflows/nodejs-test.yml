@@ -69,4 +69,6 @@ jobs:
         run: |
           # Ensure CI environment is set to avoid prompts
           export CI=true
-          npm run lint
+          # Run ESLint using the config from the workflows-repo
+          npx eslint --config ./workflows-repo/eslint.config.mjs --no-interactive '**/*.{js,ts,tsx}'
+      
