@@ -28,6 +28,12 @@ on:
         description: "Used to override the default command to run your unit tests e.g. yarn test:unit-ci"
         default: "npm run test:unit-ci"
 
+      node-version:
+        required: false
+        type: string
+        description: Node.js version
+        default: '21'  # Default version of Node.js
+
     secrets:
       token:
         required: true 
@@ -45,7 +51,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '21'
+          node-version: ${{ inputs.node-version }}
 
       - name: Install Dependencies
         run: npm install
