@@ -1,3 +1,9 @@
+## [1.1.6](https://github.com/Ridvan-bot/workflows/compare/v1.1.5...v1.1.6) (2024-11-12)
+
+### Bug Fixes
+
+* add eslint command ([f4bb13d](https://github.com/Ridvan-bot/workflows/commit/f4bb13d0228bd8506c40f26501ef6d940f099d36))
+
 ## [1.1.5](https://github.com/Ridvan-bot/workflows/compare/v1.1.4...v1.1.5) (2024-11-12)
 
 ### Bug Fixes
