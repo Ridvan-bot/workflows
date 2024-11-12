@@ -14,7 +14,7 @@ on:
         required: false
         type: string
         description: ESLint command
-        default: npx eslint '**/*.{js,ts}'
+        default:  npx eslint '**/*.{js,ts,tsx}'
 
       # <--------------- UNIT-TEST SETTINGS --------------> 
       unit-test-enable:
