@@ -14,7 +14,7 @@ on:
         required: false
         type: string
         description: ESLint command
-        default: npm run lint
+        default: npx eslint . --ext .js,.ts
 
       # <--------------- UNIT-TEST SETTINGS --------------> 
       unit-test-enable:
