@@ -47,6 +47,15 @@ jobs:
     steps:
       - name: Checkout Source
         uses: actions/checkout@v4
+      
+      # Checkout the workflows repo to access `eslint.config.mjs`
+      - name: Checkout Workflows Repo
+        uses: actions/checkout@v4
+        with:
+          repository: Ridvan-bot/workflows
+          path: workflows-repo
+          ref: eslint
+    
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
