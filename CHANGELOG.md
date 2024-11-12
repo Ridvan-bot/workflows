@@ -1,3 +1,11 @@
+## [1.1.7](https://github.com/Ridvan-bot/workflows/compare/v1.1.6...v1.1.7) (2024-11-12)
+
+### Bug Fixes
+
+* eslint config ([a5f25a6](https://github.com/Ridvan-bot/workflows/commit/a5f25a679026666a2f833cc3ceda136dc37fafc0))
+* eslint installed ([a3d2439](https://github.com/Ridvan-bot/workflows/commit/a3d24394f238127bc81e217b3a0bd508c9f1f198))
+* remove eslint, will use a feature branch for this ([601449d](https://github.com/Ridvan-bot/workflows/commit/601449de690c731ac44192f379e390a101323911))
+
 ## [1.1.6](https://github.com/Ridvan-bot/workflows/compare/v1.1.5...v1.1.6) (2024-11-12)
 
 ### Bug Fixes
