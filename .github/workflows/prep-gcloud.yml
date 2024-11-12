@@ -1,4 +1,4 @@
-name: Prep Google Cloud With Required Infrastructure
+name: Prep Google Cloud With Required Services
 
 # Trigger this workflow manually with inputs for branch and project name
 on:

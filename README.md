@@ -4,6 +4,8 @@ This repository contains shared GitHub Actions workflows that can be reused acro
 ## Available Shared Workflows
 nodejs-test.yml - A workflow to run Node.js tests.
 semantic-release.yml - A workflow for automating versioning and package releases using Semantic Release.
+prep-gcould.yml - A worfklow to enable requiered services in Google Cloud.
+
 
 ## 📋 How to Use These Workflows in Your Projects
 To utilize these shared workflows, you can reference them from your project's GitHub Actions configuration.
@@ -27,7 +29,7 @@ Go to your GitHub repository's Settings → Actions → General → Workflow per
 Make sure that the option "Read and write permissions" is enabled for the GitHub token in the CI.
 
 ## Prep GCloud Workflow
-The Prep Google Cloud With Required Infrastructure Worflow can be used to setup the requierd services in your Google Cloud Project. To succesfully run the workflow, by manually running it, you must first:
+The Prep Google Cloud With Required Services Worflow can be used to setup the requierd services in your Google Cloud Project. To succesfully run the workflow, by manually running it, you must first:
 1. Be a customer at Pohlman Protean
 2. Create a Project in Google Cloud, the name of the project must start with main- or dev-. Or ask Pohlman Protean to do it for you.
 3. Create a service Account in Google Cloud, or ask Pohlman Protean to do it.
