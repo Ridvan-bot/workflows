@@ -55,7 +55,7 @@ jobs:
         with:
           # Checkout the `eslint` branch
           repository: Ridvan-bot/workflows
-          ref: eslint
+          ref: dev
           path: workflows-repo
           fetch-depth: 1
 
