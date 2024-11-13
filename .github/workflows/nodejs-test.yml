@@ -61,7 +61,7 @@ jobs:
           node-version: ${{ inputs.node-version }}
 
       - name: Install Dependencies
-        run:
+        run: |
           cd workflows-repo 
           npm install
 
