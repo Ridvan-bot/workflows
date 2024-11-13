@@ -14,7 +14,7 @@ on:
         required: false
         type: string
         description: ESLint command
-        default: npm run lint
+        default:  npx eslint '**/*.{js,ts,tsx}'
 
       # <--------------- UNIT-TEST SETTINGS --------------> 
       unit-test-enable:
@@ -28,6 +28,12 @@ on:
         description: "Used to override the default command to run your unit tests e.g. yarn test:unit-ci"
         default: "npm run test:unit-ci"
 
+      node-version:
+        required: false
+        type: string
+        description: Node.js version
+        default: '21'  # Default version of Node.js
+
     secrets:
       token:
         required: true 
@@ -39,22 +45,35 @@ jobs:
     runs-on: ubuntu-22.04
     if: ${{ inputs.eslint-enable }}
     steps:
+      # Check out the calling repository
       - name: Checkout Source
         uses: actions/checkout@v4
+      
+      # Checkout the workflows repo to access `eslint.config.mjs`
+      - name: Checkout Workflows Repo
+        uses: actions/checkout@v4
+        with:
+          # Checkout the `eslint` branch
+          repository: Ridvan-bot/workflows
+          ref: dev
+          path: workflows-repo
+          fetch-depth: 1
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
-
+          node-version: ${{ inputs.node-version }}
       - name: Install Dependencies
-        run: npm install
-
-      - name: Echo ESLint message
-        run: echo "Running ESLint..."
+      # Install dependencies and copy the eslint config file
+        run: |
+          # Install dependencies
+          npm install
+          npm install eslint typescript-eslint eslint-plugin-react globals @eslint/js --save-dev
+          cp workflows-repo/eslint.config.mjs ./
 
       - name: Run ESLint
         run: |
-          # Ensure CI environment is set to avoid prompts
           export CI=true
-          ${{ inputs.eslint-command }}
+          npx eslint --config eslint.config.mjs '**/*.{js,ts,tsx}' || exit 1
+        
+      
