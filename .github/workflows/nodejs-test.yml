@@ -56,7 +56,6 @@ jobs:
           path: workflows-repo
           ref: eslint
 
-
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -66,12 +65,12 @@ jobs:
         run: |
           cd workflows-repo 
           npm install
+          npm link eslint typescript-eslint eslint-plugin-react globals @eslint/js
+          cp eslint.config.mjs ./
+          cd ..
 
       - name: Run ESLint
         run: |
-          ls -l
-          cd workflows-repo
-          ls -l
           # Ensure CI environment is set to avoid prompts
           export CI=true
           # Run ESLint using the config from the workflows-repo
