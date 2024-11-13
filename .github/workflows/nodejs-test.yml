@@ -45,6 +45,7 @@ jobs:
     runs-on: ubuntu-22.04
     if: ${{ inputs.eslint-enable }}
     steps:
+      # Check out the calling repository
       - name: Checkout Source
         uses: actions/checkout@v4
       
@@ -52,6 +53,7 @@ jobs:
       - name: Checkout Workflows Repo
         uses: actions/checkout@v4
         with:
+          # Checkout the `eslint` branch
           repository: Ridvan-bot/workflows
           path: workflows-repo
           ref: eslint
@@ -60,12 +62,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ inputs.node-version }}
-
       - name: Install Dependencies
+      # Install dependencies and copy the eslint config file
         run: |
           # Install dependencies
           npm install
-          npm install eslint typescript-eslint eslint-plugin-react globals @eslint/js
+          npm install eslint typescript-eslint eslint-plugin-react globals @eslint/js --save-dev
           cp workflows-repo/eslint.config.mjs ./
 
       - name: Run ESLint
