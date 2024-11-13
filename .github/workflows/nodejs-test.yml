@@ -67,6 +67,7 @@ jobs:
 
       - name: Run ESLint
         run: |
+          ls -l
           # Ensure CI environment is set to avoid prompts
           export CI=true
           # Run ESLint using the config from the workflows-repo
