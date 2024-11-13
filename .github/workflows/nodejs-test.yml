@@ -54,6 +54,8 @@ jobs:
         with:
           repository: Ridvan-bot/workflows
           path: workflows-repo
+          ref: eslint
+
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
