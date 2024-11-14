@@ -15,7 +15,9 @@ export default [
       },
     },
     rules: {
-      // Custom ESLint rules go here
+            // Disable React in-scope rule for React 17+
+            'react/react-in-jsx-scope': 'off',
+            '@typescript-eslint/no-unused-vars': 'warn',
     },
   },
   pluginJs.configs.recommended,
