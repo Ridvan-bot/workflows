@@ -74,9 +74,6 @@ jobs:
       - name: Run ESLint
         run: |
             export CI=true
-            if [ -n "${{ inputs.eslint-command }}" ]; then
-              ${{ inputs.eslint-command }}
-            else
-              npx eslint --config eslint.config.mjs '**/*.{js,ts,tsx}' || exit 1
-            fi
+            ${ inputs.eslint-command }
+        
         
