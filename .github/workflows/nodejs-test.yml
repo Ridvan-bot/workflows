@@ -14,7 +14,7 @@ on:
         required: false
         type: string
         description: ESLint command
-        default:  npx eslint '**/*.{js,ts,tsx}'
+        default:  npx eslint --config eslint.config.mjs '**/*.{js,ts,tsx}' || exit 1
 
       # <--------------- UNIT-TEST SETTINGS --------------> 
       unit-test-enable:
@@ -74,6 +74,6 @@ jobs:
       - name: Run ESLint
         run: |
           export CI=true
-          npx eslint --config eslint.config.mjs '**/*.{js,ts,tsx}' || exit 1
+          ${{ inputs.eslint-command }}
         
       
