@@ -12,28 +12,27 @@ export default [
       parserOptions: {
         ecmaVersion: 'latest', // This ensures modern JavaScript parsing
         sourceType: 'module',  // Allows imports in JavaScript files
-      },
-      plugins: {
-        react: pluginReact, 
-      },
-      languageOptions: {
-        parserOptions: {
-          ecmaFeatures: {
-            jsx: true,
-          },
-        },
-        globals: {
-          ...globals.browser,
+        ecmaFeatures: {
+          jsx: true, // Enables JSX parsing
         },
       },
     },
+    plugins: {
+      react: pluginReact, // Use the plugin object here (flat config format)
+    },
     rules: {
-      // ... any rules you want
-      'react/jsx-uses-react': 'error',
+      'react/jsx-uses-react': 'error', // These rules will now apply
       'react/jsx-uses-vars': 'error',
     },
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
-  pluginReact.configs.recommended,
+  {
+    ...pluginReact.configs.recommended,
+    settings: {
+      react: {
+        version: 'detect', // Automatically detect React version
+      },
+    },
+  },
 ];
