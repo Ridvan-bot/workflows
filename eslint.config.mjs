@@ -15,12 +15,19 @@ export default [
       },
     },
     rules: {
-            // Disable React in-scope rule for React 17+
-            'react/react-in-jsx-scope': 'off',
-            '@typescript-eslint/no-unused-vars': 'warn',
+      // Disable React in-scope rule for React 17+
+      'react/react-in-jsx-scope': 'off',  // React 17+ doesn't require React in scope
+      '@typescript-eslint/no-unused-vars': 'warn',
     },
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
-  pluginReact.configs.flat.recommended,
+  {
+    ...pluginReact.configs.recommended,
+    settings: {
+      react: {
+        version: 'detect', // Automatically detect React version
+      },
+    },
+  },
 ];
