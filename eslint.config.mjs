@@ -14,7 +14,7 @@ export default [
         sourceType: 'module',  // Allows imports in JavaScript files
       },
       plugins: {
-        react,
+        react: pluginReact, 
       },
       languageOptions: {
         parserOptions: {
