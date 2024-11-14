@@ -69,7 +69,7 @@ jobs:
         run: |
           # Install dependencies
           npm install
-          npm install eslint typescript-eslint eslint-plugin-react@latest globals @eslint/js --save-dev
+          npm install eslint typescript-eslint eslint-plugin-react globals @eslint/js --save-dev
           cp workflows-repo/eslint.config.mjs ./
 
       - name: Run ESLint
