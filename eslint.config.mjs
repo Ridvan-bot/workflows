@@ -18,10 +18,10 @@ export default [
       },
     },
     plugins: {
-      react: pluginReact, // Use the plugin object here (flat config format)
+      react: pluginReact, // Flat config format: use an object for plugins
     },
     rules: {
-      'react/jsx-uses-react': 'error', // These rules will now apply
+      'react/jsx-uses-react': 'error',
       'react/jsx-uses-vars': 'error',
     },
   },
