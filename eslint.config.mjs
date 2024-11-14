@@ -18,21 +18,11 @@ export default [
       },
     },
     plugins: {
-      react: pluginReact, // Flat config format: use an object for plugins
+      react: pluginReact,
     },
     rules: {
       'react/jsx-uses-react': 'error',
       'react/jsx-uses-vars': 'error',
-    },
-  },
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
-  {
-    ...pluginReact.configs.recommended,
-    settings: {
-      react: {
-        version: 'detect', // Automatically detect React version
-      },
     },
   },
 ];
