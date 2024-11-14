@@ -1,3 +1,17 @@
+## [1.2.0](https://github.com/Ridvan-bot/workflows/compare/v1.1.7...v1.2.0) (2024-11-14)
+
+### Bug Fixes
+
+* add detect react version ([8082761](https://github.com/Ridvan-bot/workflows/commit/8082761312014cfe5fba1a4f90f1cde161fbe246))
+* add the install dependencies run ([cd940ee](https://github.com/Ridvan-bot/workflows/commit/cd940eeb55f5ea4ec3879e6673d15eaada031720))
+* cd to workflow content before install npm ([dae7596](https://github.com/Ridvan-bot/workflows/commit/dae7596e0ba48f74d1dfecca62a7b1a170a44656))
+* checkout eslint branch ([2892a88](https://github.com/Ridvan-bot/workflows/commit/2892a88620bd36ce52e9e16a08d8667b411eb593))
+* configure eslint ([88be879](https://github.com/Ridvan-bot/workflows/commit/88be879a883ce02b4e37207144438c6547ab0bfa))
+* configure eslint ([8337b4c](https://github.com/Ridvan-bot/workflows/commit/8337b4cce8c60426534ac0c6d94b836c3b3297d5))
+* Disable React in-scope rule for React 17+ ([dd00642](https://github.com/Ridvan-bot/workflows/commit/dd00642b73cd0fe514a5ae5066f74dd7535a30ff))
+* eslint command ([7b8c831](https://github.com/Ridvan-bot/workflows/commit/7b8c8316c351b918a9f5cd024ba2d86474e5c09e))
+* installing latest version of eslint-react ([0b522cc](https://github.com/Ridvan-bot/workflows/commit/0b522cc1a8cd043069e13365eafb96b753b49151))
+
 ## [1.1.7](https://github.com/Ridvan-bot/workflows/compare/v1.1.6...v1.1.7) (2024-11-12)
 
 ### Bug Fixes
