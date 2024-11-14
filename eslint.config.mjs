@@ -14,6 +14,9 @@ export default [
         sourceType: 'module',  // Allows imports in JavaScript files
       },
     },
+    plugins: {
+      react: pluginReact, // Add the plugin as an object
+    },
     rules: {
       // Disable React in-scope rule for React 17+
       'react/react-in-jsx-scope': 'off',  // React 17+ doesn't require React in scope
