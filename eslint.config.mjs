@@ -13,11 +13,24 @@ export default [
         ecmaVersion: 'latest', // This ensures modern JavaScript parsing
         sourceType: 'module',  // Allows imports in JavaScript files
       },
+      plugins: {
+        react,
+      },
+      languageOptions: {
+        parserOptions: {
+          ecmaFeatures: {
+            jsx: true,
+          },
+        },
+        globals: {
+          ...globals.browser,
+        },
+      },
     },
     rules: {
-            // Disable React in-scope rule for React 17+
-            'react/react-in-jsx-scope': 'off',
-            '@typescript-eslint/no-unused-vars': 'warn',
+      // ... any rules you want
+      'react/jsx-uses-react': 'error',
+      'react/jsx-uses-vars': 'error',
     },
   },
   pluginJs.configs.recommended,
