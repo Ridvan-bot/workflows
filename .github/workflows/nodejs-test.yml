@@ -76,4 +76,26 @@ jobs:
             export CI=true
             ${{ inputs.eslint-command }}
         
-        
+    # <------------------- Unit Test -------------------> 
+  unit-test:
+    name: Unit Test
+    runs-on: ubuntu-22.04
+    if: ${{ inputs.unit-test-enable }}
+    steps:
+      # Check out the calling repository
+      - name: Checkout Source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node-version }}
+
+      - name: Install Dependencies
+        run: |
+          # Install dependencies
+          npm install
+
+      - name: Run Unit Tests
+        run: |
+          ${{ inputs.unit-test-command }}
