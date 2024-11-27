@@ -74,7 +74,19 @@ jobs:
         run: |
           # Install dependencies
           npm install
-          npm install eslint typescript-eslint eslint-plugin-react globals @eslint/js @typescript-eslint/parser --save-dev
+          dependencies=(
+            "eslint"
+            "typescript-eslint"
+            "eslint-plugin-react"
+            "globals"
+            "@eslint/js"
+            "@typescript-eslint/parser"
+          )
+          for dep in "${dependencies[@]}"; do
+            if ! grep -q "\"$dep\"" package.json; then
+              npm install "$dep" --save-dev
+            fi
+          done
 
       - name: Verify Files and Directories
         run: |
@@ -117,7 +129,22 @@ jobs:
         run: |
           # Install dependencies
           npm install
-          npm install @babel/core @babel/preset-env @babel/preset-typescript @babel/preset-react @babel/preset-flow @babel/plugin-transform-runtime @babel/runtime jest-environment-jsdom jest-transform-stub --save-dev
+          dependencies=(
+            "@babel/core"
+            "@babel/preset-env"
+            "@babel/preset-typescript"
+            "@babel/preset-react"
+            "@babel/preset-flow"
+            "@babel/plugin-transform-runtime"
+            "@babel/runtime"
+            "jest-environment-jsdom"
+            "jest-transform-stub"
+          )
+          for dep in "${dependencies[@]}"; do
+            if ! grep -q "\"$dep\"" package.json; then
+              npm install "$dep" --save-dev
+            fi
+          done
           
       - name: Verify Files and Directories
         run: |
