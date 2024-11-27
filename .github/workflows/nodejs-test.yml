@@ -75,7 +75,13 @@ jobs:
           # Install dependencies
           npm install
           npm install eslint typescript-eslint eslint-plugin-react globals @eslint/js @typescript-eslint/parser --save-dev
-          cp workflows-repo/eslint.config.mjs ./
+
+      - name: Verify Files and Directories
+        run: |
+            if [ ! -f eslint.config.mjs ]; then
+              echo "eslint.config.mjs not found, copying..."
+              cp workflows-repo/eslint.config.mjs ./
+            fi
 
       - name: Run ESLint
         run: |
@@ -113,12 +119,20 @@ jobs:
           npm install
           npm install @babel/core @babel/preset-env @babel/preset-typescript @babel/preset-react @babel/preset-flow @babel/plugin-transform-runtime @babel/runtime jest-environment-jsdom jest-transform-stub --save-dev
           
-      - name: copy babel.config.js
-        run: | 
-            cp workflows-repo/babel.config.js ./
-            cp workflows-repo/jest.config.js ./
-            cp -r workflows-repo/__mocks__ ./
-            
+      - name: Verify Files and Directories
+        run: |
+            if [ ! -f babel.config.js ]; then
+              echo "babel.config.js not found, copying..."
+              cp workflows-repo/babel.config.js ./
+            fi
+            if [ ! -f jest.config.js ]; then
+              echo "jest.config.js not found, copying..."
+              cp workflows-repo/jest.config.js ./
+            fi
+            if [ ! -d __mocks__ ]; then
+              echo "__mocks__ directory not found, copying..."
+              cp -r workflows-repo/__mocks__ ./
+            fi
       - name: Run Unit Tests
         run: |
           ${{ inputs.unit-test-command }}
