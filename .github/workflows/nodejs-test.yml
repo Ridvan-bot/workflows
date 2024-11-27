@@ -3,6 +3,12 @@ name: Node.js Test
 on:
   workflow_call:
     inputs:
+
+      branch:
+        required: false
+        type: string
+        description: "Branch name"
+        default: 'main'
       # <--------------- ESLint Setting ---------------> 
       eslint-enable:
         required: false
@@ -56,7 +62,7 @@ jobs:
         with:
           # Checkout the `eslint` branch
           repository: Ridvan-bot/workflows
-          ref: dev
+          ref: ${{ inputs.branch }}
           path: workflows-repo
           fetch-depth: 1
 
@@ -93,7 +99,7 @@ jobs:
         with:
         # Checkout the `eslint` branch
           repository: Ridvan-bot/workflows
-          ref: unit-test
+          ref: ${{ inputs.branch }}
           path: workflows-repo
           fetch-depth: 1
 
