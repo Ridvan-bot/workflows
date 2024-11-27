@@ -1,3 +1,15 @@
+## [1.3.0](https://github.com/Ridvan-bot/workflows/compare/v1.2.0...v1.3.0) (2024-11-27)
+
+### Bug Fixes
+
+* add mocks due to the next/image component from Next.js requires a src property ([4b757eb](https://github.com/Ridvan-bot/workflows/commit/4b757eb900bd3ca6db8c1edecd13ebede6833792))
+* corrupt package.json file ([5ced6b5](https://github.com/Ridvan-bot/workflows/commit/5ced6b58c13bfdd475d22c3d9a8962cf772dd6d4))
+* move __mocks__ folder to the correct location ([1883dd3](https://github.com/Ridvan-bot/workflows/commit/1883dd3fed5df4331ef9285f2ac2e805e7f504d0))
+* remove hardcoded ref branch with branch input ([e95709e](https://github.com/Ridvan-bot/workflows/commit/e95709e4afbdf11457fd91debaa9b7e05dd655a9))
+* remove lockfile and update gitignore file ([bf94da4](https://github.com/Ridvan-bot/workflows/commit/bf94da45a7c409d67695dadb4bf2d30bee40d914))
+* remove package-lock file, update package.json file ([a3a9054](https://github.com/Ridvan-bot/workflows/commit/a3a90543dba416c1b61e15ee4e931636dedb417e))
+* test folder location ([6b01afe](https://github.com/Ridvan-bot/workflows/commit/6b01afe9d4f4aad65978b7cf47d599e64f033c5f))
+
 ## [1.2.0](https://github.com/Ridvan-bot/workflows/compare/v1.1.7...v1.2.0) (2024-11-14)
 
 ### Bug Fixes
