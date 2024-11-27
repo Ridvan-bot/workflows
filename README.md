@@ -28,6 +28,23 @@ Ensure that the token used by the CI has the necessary permissions by:
 Go to your GitHub repository's Settings → Actions → General → Workflow permissions.
 Make sure that the option "Read and write permissions" is enabled for the GitHub token in the CI.
 
+### Unit Test Setup
+To set up unit tests, you need to:
+
+1. Create a folder named `__tests__` in the root of your repository.
+2. Add your unit test files in the `__tests__` folder.
+
+Example structure:
+your-repo/
+├── __tests__/
+│   ├── example.test.tsx
+│   └── anotherExample.test.tsx
+├── app/
+│   ├── page.tsx
+│   └── anotherFile.tsx
+├── package.json
+└── ...
+
 ## Prep GCloud Workflow
 The Prep Google Cloud With Required Services Worflow can be used to setup the requierd services in your Google Cloud Project. To succesfully run the workflow, by manually running it, you must first:
 1. Be a customer at Pohlman Protean

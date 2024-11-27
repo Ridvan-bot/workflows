@@ -3,6 +3,7 @@
 - [x] Create a workflow that setup he requierd API services in google cloud?
 - [x] Add ESLINT test in workflows 
 - [ ] Add Unit test in workflows
+- [ ] Add pnpm option
 
 
 

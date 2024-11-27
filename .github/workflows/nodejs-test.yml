@@ -77,4 +77,46 @@ jobs:
             export CI=true
             ${{ inputs.eslint-command }}
         
-        
+    # <------------------- Unit Test -------------------> 
+  unit-test:
+    name: Unit Test
+    runs-on: ubuntu-22.04
+    if: ${{ inputs.unit-test-enable }}
+    steps:
+      # Check out the calling repository
+      - name: Checkout Source
+        uses: actions/checkout@v4
+
+        # Checkout the workflows repo to access `babel.config.js`
+      - name: Checkout Workflows Repo
+        uses: actions/checkout@v4
+        with:
+        # Checkout the `eslint` branch
+          repository: Ridvan-bot/workflows
+          ref: unit-test
+          path: workflows-repo
+          fetch-depth: 1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node-version }}
+
+      - name: Install Dependencies
+        run: |
+          # Install dependencies
+          npm install
+          npm install @babel/core @babel/preset-env @babel/preset-typescript @babel/preset-react @babel/preset-flow @babel/plugin-transform-runtime @babel/runtime jest-environment-jsdom jest-transform-stub --save-dev
+          
+      - name: copy babel.config.js
+        run: | 
+            cp workflows-repo/babel.config.js ./
+            cp workflows-repo/jest.config.js ./
+            cp -r workflows-repo/__mocks__ ./
+
+      - name: Run ls -l
+        run: |
+          ls -l
+      - name: Run Unit Tests
+        run: |
+          ${{ inputs.unit-test-command }}
