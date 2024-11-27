@@ -106,8 +106,13 @@ jobs:
           # Install dependencies
           npm install
           npm install @babel/core @babel/preset-env @babel/preset-typescript @babel/preset-react @babel/preset-flow @babel/plugin-transform-runtime @babel/runtime --save-dev
+      
       - name: copy babel.config.js
         run: cp workflows-repo/babel.config.js ./
+
+      - name: Run ls -l
+        run: |
+          ls -l
       - name: Run Unit Tests
         run: |
           ${{ inputs.unit-test-command }}
