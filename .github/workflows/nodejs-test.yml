@@ -74,7 +74,24 @@ jobs:
         run: |
           # Install dependencies
           npm install
-          npm install eslint typescript-eslint eslint-plugin-react globals @eslint/js @typescript-eslint/parser --save-dev
+          if ! grep -q '"eslint"' package.json; then
+            npm install eslint --save-dev
+          fi
+          if ! grep -q '"typescript-eslint"' package.json; then
+            npm install typescript-eslint --save-dev
+          fi
+          if ! grep -q '"eslint-plugin-react"' package.json; then
+            npm install eslint-plugin-react --save-dev
+          fi
+          if ! grep -q '"globals"' package.json; then
+            npm install globals --save-dev
+          fi
+          if ! grep -q '"@eslint/js"' package.json; then
+            npm install @eslint/js --save-dev
+          fi
+          if ! grep -q '"@typescript-eslint/parser"' package.json; then
+            npm install @typescript-eslint/parser --save-dev
+          fi
 
       - name: Verify Files and Directories
         run: |
@@ -117,7 +134,33 @@ jobs:
         run: |
           # Install dependencies
           npm install
-          npm install @babel/core @babel/preset-env @babel/preset-typescript @babel/preset-react @babel/preset-flow @babel/plugin-transform-runtime @babel/runtime jest-environment-jsdom jest-transform-stub --save-dev
+          if ! grep -q '"@babel/core"' package.json; then
+            npm install @babel/core --save-dev
+          fi
+          if ! grep -q '"@babel/preset-env"' package.json; then
+            npm install @babel/preset-env --save-dev
+          fi
+          if ! grep -q '"@babel/preset-typescript"' package.json; then
+            npm install @babel/preset-typescript --save-dev
+          fi
+          if ! grep -q '"@babel/preset-react"' package.json; then
+            npm install @babel/preset-react --save-dev
+          fi
+          if ! grep -q '"@babel/preset-flow"' package.json; then
+            npm install @babel/preset-flow --save-dev
+          fi
+          if ! grep -q '"@babel/plugin-transform-runtime"' package.json; then
+            npm install @babel/plugin-transform-runtime --save-dev
+          fi
+          if ! grep -q '"@babel/runtime"' package.json; then
+            npm install @babel/runtime --save-dev
+          fi
+          if ! grep -q '"jest-environment-jsdom"' package.json; then
+            npm install jest-environment-jsdom --save-dev
+          fi
+          if ! grep -q '"jest-transform-stub"' package.json; then
+            npm install jest-transform-stub --save-dev
+          fi
           
       - name: Verify Files and Directories
         run: |
