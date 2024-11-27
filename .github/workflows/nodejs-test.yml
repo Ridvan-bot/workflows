@@ -108,7 +108,9 @@ jobs:
           npm install @babel/core @babel/preset-env @babel/preset-typescript @babel/preset-react @babel/preset-flow @babel/plugin-transform-runtime @babel/runtime --save-dev
       
       - name: copy babel.config.js
-        run: cp workflows-repo/babel.config.js ./
+        run: | 
+            cp workflows-repo/babel.config.js ./
+            cp workflows-repo/jest.config.js ./
 
       - name: Run ls -l
         run: |
