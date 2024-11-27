@@ -98,6 +98,8 @@ jobs:
           
       - name: run ls -l
         run: ls -l
+      - name: copy babel.config.js
+        run: cp workflows-repo/babel.config.js ./
       - name: Run Unit Tests
         run: |
           ${{ inputs.unit-test-command }}
