@@ -3,7 +3,6 @@ name: Node.js Test
 on:
   workflow_call:
     inputs:
-
       branch:
         required: false
         type: string
@@ -119,10 +118,7 @@ jobs:
             cp workflows-repo/babel.config.js ./
             cp workflows-repo/jest.config.js ./
             cp -r workflows-repo/__mocks__ ./
-
-      - name: Run ls -l
-        run: |
-          ls -l
+            
       - name: Run Unit Tests
         run: |
           ${{ inputs.unit-test-command }}
