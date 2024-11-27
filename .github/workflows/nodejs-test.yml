@@ -92,7 +92,7 @@ jobs:
         with:
         # Checkout the `eslint` branch
           repository: Ridvan-bot/workflows
-          ref: unittest
+          ref: unit-test
           path: workflows-repo
           fetch-depth: 1
 
