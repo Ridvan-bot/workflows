@@ -95,7 +95,9 @@ jobs:
         run: |
           # Install dependencies
           npm install
-
+          
+      - name: run ls -l
+        run: ls -l
       - name: Run Unit Tests
         run: |
           ${{ inputs.unit-test-command }}
