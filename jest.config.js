@@ -1,18 +1,20 @@
 module.exports = {
   preset: 'ts-jest',
-  testEnvironment: 'jsdom', // jsdom is required for React tests
+  testEnvironment: 'jsdom',
   transform: {
-    '^.+\\.(ts|tsx|js|jsx)$': 'babel-jest', // Tells Jest to use babel-jest for TypeScript and JavaScript files
+    '^.+\\.(ts|tsx|js|jsx)$': 'babel-jest',
+    '^.+\\.svg$': 'jest-transform-stub',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   testMatch: [
     '**/__tests__/**/*.[jt]s?(x)',
-    '**/?(*.)+(spec|test).[tj]s?(x)'
+    '**/?(*.)+(spec|test).[tj]s?(x)',
   ],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
   },
   transformIgnorePatterns: [
-    '/node_modules/'
+    'node_modules/(?!(module-to-transform)/)',
   ],
 };

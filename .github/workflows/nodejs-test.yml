@@ -105,7 +105,7 @@ jobs:
         run: |
           # Install dependencies
           npm install
-          npm install @babel/core @babel/preset-env @babel/preset-typescript @babel/preset-react @babel/preset-flow @babel/plugin-transform-runtime @babel/runtime jest-environment-jsdom --save-dev
+          npm install @babel/core @babel/preset-env @babel/preset-typescript @babel/preset-react @babel/preset-flow @babel/plugin-transform-runtime @babel/runtime jest-environment-jsdom jest-transform-stub --save-dev
           
       - name: copy babel.config.js
         run: | 
