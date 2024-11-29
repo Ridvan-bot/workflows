@@ -114,7 +114,7 @@ jobs:
       - name: Checkout Workflows Repo
         uses: actions/checkout@v4
         with:
-        # Checkout the `eslint` branch
+        # Checkout the branch
           repository: Ridvan-bot/workflows
           ref: ${{ inputs.branch }}
           path: workflows-repo

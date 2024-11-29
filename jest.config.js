@@ -16,5 +16,6 @@ module.exports = {
   },
   transformIgnorePatterns: [
     'node_modules/(?!(module-to-transform)/)',
+    '<rootDir>/__mocks__',
   ],
 };
