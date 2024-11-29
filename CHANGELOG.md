@@ -1,3 +1,10 @@
+## [1.6.0](https://github.com/Ridvan-bot/workflows/compare/v1.5.0...v1.6.0) (2024-11-29)
+
+### Bug Fixes
+
+* update checkout step to use generic branch reference and add mock directory to transformIgnorePatterns ([5e8cd0c](https://github.com/Ridvan-bot/workflows/commit/5e8cd0c24ea02df2fd71b0c3e84c9243dd9ca58a))
+* update checkout step to use generic branch reference and add mock directory to transformIgnorePatterns ([cd10762](https://github.com/Ridvan-bot/workflows/commit/cd1076236f283c7652d4e9d5730577b5ca0e39fb))
+
 ## [1.5.0](https://github.com/Ridvan-bot/workflows/compare/v1.4.0...v1.5.0) (2024-11-27)
 
 ## [1.4.0](https://github.com/Ridvan-bot/workflows/compare/v1.3.0...v1.4.0) (2024-11-27)
