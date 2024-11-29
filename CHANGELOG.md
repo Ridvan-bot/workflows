@@ -1,3 +1,9 @@
+## [1.6.1](https://github.com/Ridvan-bot/workflows/compare/v1.6.0...v1.6.1) (2024-11-29)
+
+### Bug Fixes
+
+* refactor internal push workflow to improve branch condition checks ([291cc39](https://github.com/Ridvan-bot/workflows/commit/291cc394d35edbe1911304fb2ad312b68c2ba9d8))
+
 ## [1.6.0](https://github.com/Ridvan-bot/workflows/compare/v1.5.0...v1.6.0) (2024-11-29)
 
 ### Bug Fixes
