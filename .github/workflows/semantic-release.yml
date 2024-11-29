@@ -9,6 +9,10 @@ on:
       releaserc_path:
         required: false
         type: string
+      slack_enabled:
+        required: false
+        type: boolean
+        default: false
     secrets:
       token:
         required: true
@@ -61,7 +65,7 @@ jobs:
           npx semantic-release
   
   semantic-release-success:
-    if: ${{ needs.execute-semantic-release.result == 'success' }}
+    if: ${{ needs.execute-semantic-release.result == 'success' && inputs.slack_enabled }}
     needs: Execute-Semantic-release
     runs-on: ubuntu-latest
     steps:
