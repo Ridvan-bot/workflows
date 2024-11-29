@@ -64,7 +64,7 @@ jobs:
         run: |
           npx semantic-release
   
-  notify-slack:
+  Notify-slack:
     if: ${{ needs.execute-semantic-release.result == 'success' && inputs.slack_enabled }}
     needs: Execute-Semantic-release
     runs-on: ubuntu-latest
