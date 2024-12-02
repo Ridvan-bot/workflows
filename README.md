@@ -6,7 +6,6 @@ nodejs-test.yml - A workflow to run Node.js tests.
 semantic-release.yml - A workflow for automating versioning and package releases using Semantic Release.
 prep-gcould.yml - A worfklow to enable requiered services in Google Cloud.
 
-
 ## 📋 How to Use These Workflows in Your Projects
 To utilize these shared workflows, you can reference them from your project's GitHub Actions configuration.
 
@@ -23,6 +22,7 @@ Customize the workflow files as needed.
 Ensure you have the following setup:
 
 A GitHub Personal Access Token stored in your repository's secrets (e.g., GH_TOKEN).
+A Slack WebHook secret stored in your repository's secrets (e.g., SLACK_WEBHOOK).
 For the semantic-release.yml workflow, make sure your default branch is set to main for releases to trigger.
 Ensure that the token used by the CI has the necessary permissions by:
 Go to your GitHub repository's Settings → Actions → General → Workflow permissions.
