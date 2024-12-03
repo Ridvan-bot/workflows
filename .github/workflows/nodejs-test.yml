@@ -34,7 +34,6 @@ on:
         description: "Used to override the default command to run your unit tests e.g. yarn test:unit-ci"
         default: "npm run test:unit-ci"
       node-version:
-
         required: false
         type: string
         description: Node.js version
