@@ -66,5 +66,5 @@ jobs:
         run: |
           gcloud artifacts repositories create eu.gcr.io \
             --repository-format=docker \
-            --location=europe-west1 \
+            --location=europe \
             --description="Docker repository"
