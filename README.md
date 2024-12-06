@@ -60,3 +60,6 @@ This project is licensed under the MIT License.
 By using these shared workflows, you can automate your CI/CD processes efficiently across all your projects. If you have any issues, feel free to open an issue in this repository.
 
 Happy coding! 🚀
+
+##
+Crafted with care by **Robin Pohlman** at **Pohlman Protean AB**.
