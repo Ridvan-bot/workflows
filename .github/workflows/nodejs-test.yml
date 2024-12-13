@@ -41,7 +41,9 @@ on:
 
     secrets:
       token:
-        required: true 
+        required: true
+      databae_url:
+        required: false
 
 jobs:
   # <---------------------- ESLINT ----------------------> 
