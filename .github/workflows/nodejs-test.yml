@@ -163,4 +163,5 @@ jobs:
             fi
       - name: Run Unit Tests
         run: |
+          ${{ secrets.database_url}}
           ${{ inputs.unit-test-command }}
