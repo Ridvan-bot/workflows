@@ -164,7 +164,7 @@ jobs:
 
       - name: Run Unit Tests
         env:
-          database_url: ${{ secrets.database_url}}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
           ${{ inputs.unit-test-command }}
 
