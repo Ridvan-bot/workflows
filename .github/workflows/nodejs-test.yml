@@ -42,7 +42,7 @@ on:
     secrets:
       token:
         required: true
-      databae_url:
+      database_url:
         required: false
 
 jobs:
