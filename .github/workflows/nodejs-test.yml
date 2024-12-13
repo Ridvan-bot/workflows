@@ -161,7 +161,10 @@ jobs:
               echo "__mocks__ directory not found, copying..."
               cp -r workflows-repo/__mocks__ ./
             fi
+
       - name: Run Unit Tests
+        env:
+          database_url: ${{ secrets.database_url}}
         run: |
-          ${{ secrets.database_url}}
           ${{ inputs.unit-test-command }}
+
