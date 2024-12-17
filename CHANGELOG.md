@@ -1,3 +1,10 @@
+## [1.9.0](https://github.com/Ridvan-bot/workflows/compare/v1.8.0...v1.9.0) (2024-12-17)
+
+### Bug Fixes
+
+* correct typo in database_url secret name in nodejs-test workflow ([5d85f3d](https://github.com/Ridvan-bot/workflows/commit/5d85f3d30b7d5a2c57ea5376cf490407c88918ac))
+* update environment variable name for database URL in nodejs-test workflow ([d226e86](https://github.com/Ridvan-bot/workflows/commit/d226e86773a689ca67cfab690d525b8d86aa9c7f))
+
 ## [1.8.0](https://github.com/Ridvan-bot/workflows/compare/v1.7.0...v1.8.0) (2024-12-03)
 
 ## [1.7.0](https://github.com/Ridvan-bot/workflows/compare/v1.6.1...v1.7.0) (2024-11-29)

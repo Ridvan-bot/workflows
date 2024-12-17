@@ -1,6 +1,6 @@
 {
   "name": "workflows",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "This repository contains shared GitHub Actions workflows that can be reused across multiple repositories. By using these shared workflows, you can streamline your CI/CD pipelines and maintain consistency across projects.",
   "main": "index.js",
   "scripts": {
