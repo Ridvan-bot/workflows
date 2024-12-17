@@ -6,6 +6,20 @@ nodejs-test.yml - A workflow to run Node.js tests.
 semantic-release.yml - A workflow for automating versioning and package releases using Semantic Release.
 prep-gcould.yml - A worfklow to enable requiered services in Google Cloud.
 
+## 🔔 Setting Up Slack Notifications
+To send notifications to Slack from your workflows, you need to set up a Slack WebHook and store it as a secret in your GitHub repository.
+
+### How to Set Up a WebHook in Slack
+1. Go to your Slack workspace and navigate to the "Apps" section.
+2. Search for "Incoming WebHooks" and add it to your workspace.
+3. Click "Add Configuration" and select the channel where you want to post the notifications.
+4. Copy the WebHook URL provided by Slack.
+
+### Storing the WebHook URL in GitHub Secrets
+1. Go to your GitHub repository and navigate to "Settings" → "Secrets" → "Actions".
+2. Click "New repository secret".
+3. Name the secret `SLACK_WEBHOOK` and paste the WebHook URL you copied from Slack.
+
 ## 📋 How to Use These Workflows in Your Projects
 To utilize these shared workflows, you can reference them from your project's GitHub Actions configuration.
 

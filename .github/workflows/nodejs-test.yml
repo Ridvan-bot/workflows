@@ -41,7 +41,9 @@ on:
 
     secrets:
       token:
-        required: true 
+        required: true
+      database_url:
+        required: false
 
 jobs:
   # <---------------------- ESLINT ----------------------> 
@@ -159,6 +161,10 @@ jobs:
               echo "__mocks__ directory not found, copying..."
               cp -r workflows-repo/__mocks__ ./
             fi
+
       - name: Run Unit Tests
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
           ${{ inputs.unit-test-command }}
+
