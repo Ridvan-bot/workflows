@@ -4,8 +4,10 @@
 - [x] Add ESLINT test in workflows 
 - [x] Add Unit test in workflows
 - [ ] Add pnpm option
-- [W] Add slack and team notifucation
+- [x] Add slack and team notifucation
 - [W] prep-gcloud will enable secret manager API 
+- [] Notify slack should be it's own workflow and should be triggerd after deploy success, not before. 
+
 
 
 
