@@ -25,6 +25,7 @@ on:
 jobs:
   setup-project:
     runs-on: ubuntu-22.04
+    timeout-minutes: 17
 
     steps:
       - name: Checkout code

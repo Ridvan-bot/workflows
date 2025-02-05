@@ -9,6 +9,7 @@ jobs:
   No-release:
     if: ${{ github.ref != 'refs/heads/main' }}
     runs-on: ubuntu-latest
+    timeout-minutes: 17
     steps:
       - name: No release
         run: echo "Branch is not main, no need to release."

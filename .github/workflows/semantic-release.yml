@@ -26,6 +26,7 @@ jobs:
   Execute-Semantic-release:
     if: ${{ inputs.branches == 'main' }}
     runs-on: ubuntu-22.04
+    timeout-minutes: 17
 
     steps:
       # Check out the calling repository
@@ -72,6 +73,7 @@ jobs:
     if: ${{ needs.execute-semantic-release.result == 'success' && inputs.slack_enabled }}
     needs: Execute-Semantic-release
     runs-on: ubuntu-latest
+    timeout-minutes: 17
     steps:
       - uses: actions/checkout@v4
       - name: Slack Notification
