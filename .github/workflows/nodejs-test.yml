@@ -50,6 +50,7 @@ jobs:
   eslint:
     name: ESLint Check
     runs-on: ubuntu-22.04
+    timeout-minutes: 17
     if: ${{ inputs.eslint-enable }}
     steps:
       # Check out the calling repository
@@ -105,6 +106,7 @@ jobs:
   unit-test:
     name: Unit Test
     runs-on: ubuntu-22.04
+    timeout-minutes: 17
     if: ${{ inputs.unit-test-enable }}
     steps:
       # Check out the calling repository
