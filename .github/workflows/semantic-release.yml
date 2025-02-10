@@ -89,7 +89,9 @@ jobs:
 
   Push-npm-package-to-npm-registry:
       if: ${{ needs.execute-semantic-release.result == 'success' && inputs.npm_publish_enabled }}
+      needs: Execute-Semantic-release
       runs-on: ubuntu-latest
+      timeout-minutes: 17
       steps:
         - name: Checkout code
           uses: actions/checkout@v4
