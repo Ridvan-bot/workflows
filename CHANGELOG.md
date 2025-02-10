@@ -1,3 +1,5 @@
+## [1.10.0](https://github.com/Ridvan-bot/workflows/compare/v1.9.0...v1.10.0) (2025-02-10)
+
 ## [1.9.0](https://github.com/Ridvan-bot/workflows/compare/v1.8.0...v1.9.0) (2024-12-17)
 
 ### Bug Fixes
