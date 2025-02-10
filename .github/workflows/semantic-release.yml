@@ -13,6 +13,10 @@ on:
         required: false
         type: boolean
         default: false
+      npm_publish_enabled:
+          required: false
+          type: boolean
+          default: false
       teams_enabled:
         required: false
         type: boolean
@@ -21,6 +25,8 @@ on:
       token:
         required: true
       slack_webhook:
+        required: false
+      npm_token:
         required: false
 jobs:
   Execute-Semantic-release:
@@ -80,4 +86,23 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+
+  Push-npm-package-to-npm-registry:
+      if: ${{ needs.execute-semantic-release.result == 'success' && inputs.npm_publish_enabled }}
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+          with:
+            fetch-depth: 0
+        - name: Set up Node.js
+          uses: actions/setup-node@v2
+          with:
+            node-version: '18'
+        - name: Install dependencies
+          run: npm install
+        - name: Publish to npm
+          run: npm publish
+          env:
+            NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
