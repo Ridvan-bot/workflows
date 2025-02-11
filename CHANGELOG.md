@@ -1,3 +1,9 @@
+## [1.10.1](https://github.com/Ridvan-bot/workflows/compare/v1.10.0...v1.10.1) (2025-02-11)
+
+### Bug Fixes
+
+* update environment variable name for npm publish job ([81ec21d](https://github.com/Ridvan-bot/workflows/commit/81ec21df7601f226b52a98f4b9a75b975b4dfb08))
+
 ## [1.10.0](https://github.com/Ridvan-bot/workflows/compare/v1.9.0...v1.10.0) (2025-02-10)
 
 ## [1.9.0](https://github.com/Ridvan-bot/workflows/compare/v1.8.0...v1.9.0) (2024-12-17)
