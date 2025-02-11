@@ -88,7 +88,7 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
   Push-npm-package-to-npm-registry:
-      if: ${{ needs.execute-semantic-release.result == 'success' && inputs.npm_publish_enabled }}
+      if: ${{ needs.execute-semantic-release.result == 'success' && inputs.npm_publish_enabled  }}
       needs: Execute-Semantic-release
       runs-on: ubuntu-latest
       timeout-minutes: 17
@@ -98,13 +98,14 @@ jobs:
           with:
             fetch-depth: 0
         - name: Set up Node.js
-          uses: actions/setup-node@v2
+          uses: actions/setup-node@v4
           with:
-            node-version: '18'
+            node-version: '20'
+            registry-url: 'https://registry.npmjs.org'
         - name: Install dependencies
           run: npm install
         - name: Publish to npm
-          run: npm publish
+          run: npm publish --provenance --access public
           env:
-            NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
