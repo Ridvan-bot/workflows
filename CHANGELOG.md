@@ -1,3 +1,9 @@
+## [1.10.2](https://github.com/Ridvan-bot/workflows/compare/v1.10.1...v1.10.2) (2025-02-11)
+
+### Bug Fixes
+
+* update Node.js version and npm publish command in semantic release workflow ([77706c2](https://github.com/Ridvan-bot/workflows/commit/77706c2aef6878e7c7adaaab186b56b77a94753e))
+
 ## [1.10.1](https://github.com/Ridvan-bot/workflows/compare/v1.10.0...v1.10.1) (2025-02-11)
 
 ### Bug Fixes
